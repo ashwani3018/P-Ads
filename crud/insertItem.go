@@ -13,20 +13,14 @@ import (
 )
 
 func InsertItem() {
-	// snippet-start:[dynamodb.go.create_item.session]
-	// Initialize a session that the SDK will use to load
-	// credentials from the shared credentials file ~/.aws/credentials
-	// and region from the shared configuration file ~/.aws/config.
 	sess := session.Must(session.NewSessionWithOptions(session.Options{
 		SharedConfigState: session.SharedConfigEnable,
 	}))
 
 	// Create DynamoDB client
 	svc := dynamodb.New(sess)
-	// snippet-end:[dynamodb.go.create_item.session]
 
 	//////////////////////////////////////////////////////////////////
-
 
 	// Each Category Logic
 	categories := []model.Category{}
@@ -45,10 +39,7 @@ func InsertItem() {
 		categories = append(categories, category)
 	}
 
-
-
-
-	// Sub-Category Ads Logic
+	// Each Sub-Category Ads Logic
 	subCategories := []model.SubCategory{}
 	for j := 0; j<3; j++ {
 		// Category Ads Array
@@ -72,12 +63,10 @@ func InsertItem() {
 	// Final Ads Model
 	ads := model.Ads{ID: 400}
 
-
 	ads.Category = categories
 	ads.SubCategory = subCategories
 	ads.BottomBanner = bottomBanner
 	ads.FullScreen = fullScreen
-
 
 	av, err := dynamodbattribute.MarshalMap(ads)
 	if err != nil {

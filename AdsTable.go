@@ -8,7 +8,8 @@ import (
 
 func main() {
 	//crud.CreateTable()
-	crud.InsertItem()
+	//crud.InsertItem()
+	crud.ReadItem()
 }
 
 
