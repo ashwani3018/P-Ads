@@ -11,8 +11,8 @@ type Ads struct {
 	ID  int  `json:"ID"`
 	Category    [] Category     `json:"category"`
 	SubCategory  []SubCategory  `json:"subCategory"`
-	bottomBanner BottomBanner `json:"bottomBanner"`
-	fullScreen   FullScreen   `json:"fullScreen"`
+	BottomBanner BottomBanner `json:"bottomBanner"`
+	FullScreen   FullScreen   `json:"fullScreen"`
 }
 
 type Category struct {
@@ -27,14 +27,14 @@ type SubCategory struct {
 
 type BottomBanner struct {
 	AdsID       string `json:"adsId"`
-	RequestType string `json:"requestType"`
+	TotalRequest int `json:"totalRequest"`
 }
 
 type FullScreen struct {
 	AdsID         string `json:"adsId"`
-	RequestCount  string `json:"requestCount"`
-	ShowInDetail  string `json:"showInDetail"`
-	ShowInListing string `json:"showInListing"`
+	TotalRequest  int `json:"totalRequest"`
+	ShowInDetail  bool `json:"showInDetail"`
+	ShowInListing bool `json:"showInListing"`
 }
 
 type AdsItem struct {

@@ -66,27 +66,19 @@ func InsertItem() {
 		subCategories = append(subCategories, subCategory)
 	}
 
+	bottomBanner := model.BottomBanner{AdsID: "Bottom Banner Ads Id", TotalRequest:20}
+	fullScreen := model.FullScreen{AdsID: "FullScreen Ads Id", TotalRequest:20, ShowInDetail : true, ShowInListing:true}
 
-	// Ads Struct Initialisation
-	/*adsConfig := model.AdsConfig{
-		ID:  100,
-	}*/
-	ads := model.Ads{ID: 300}
+	// Final Ads Model
+	ads := model.Ads{ID: 400}
+
 
 	ads.Category = categories
 	ads.SubCategory = subCategories
+	ads.BottomBanner = bottomBanner
+	ads.FullScreen = fullScreen
 
-	//adsConfig.Ads = ads
-	//////////////////////////////////////////////////////////////////
 
-	// snippet-start:[dynamodb.go.create_item.assign_struct]
-	/*itemItem := model.TestItem{
-		Year:   2015,
-		Title:  "The Big New Movie",
-		Plot:   "Nothing happens at all.",
-		Rating: 0.0,
-		ID: 90,
-	}*/
 	av, err := dynamodbattribute.MarshalMap(ads)
 	if err != nil {
 		fmt.Println("Got error marshalling new movie item:")
@@ -106,9 +98,6 @@ func InsertItem() {
 		os.Exit(1)
 	}
 
-	//year := strconv.Itoa(item.Year)
 
-	//fmt.Println("Successfully added '" + item.Title + "' (" + year + ") to table " + tableName)
 	fmt.Println("Successfully added '" + constant.TableName)
-	// snippet-end:[dynamodb.go.create_item.call]
 }
