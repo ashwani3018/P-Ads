@@ -1,8 +1,8 @@
 package crud
 
 import (
-	"Advertisement/constant"
-	"Advertisement/model"
+	"../constant"
+	"../model"
 	"fmt"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"

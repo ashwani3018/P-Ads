@@ -1,8 +1,8 @@
 package crud
 
 import (
-	"Advertisement/constant"
-	"Advertisement/model"
+	"../constant"
+	"../model"
 	"encoding/json"
 	"fmt"
 	"github.com/aws/aws-sdk-go/aws"
